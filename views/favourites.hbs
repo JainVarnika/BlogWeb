@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+      <header>
+        <nav>
+            <h4>BlogWeb</h4>
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">register</a>
+            <a href="/addblog">AddBlog</a>
+        </nav>
+    </header>
+
+    <h1>Welcome </h1>
+    
+
+    <div class="container">
+{{#each blogsadmin as |blog|}}
+{{#if blog.favourites}}
+  <div class="blog-card">
+    <h2>Title: {{title}}</h2>
+    <img src={{image}} alt="hi">
+    <p>Description: {{content}}</p>
+    <p>Author: {{user.username}}</p>
+
+<form action="/fullblog/{{_id}}" method="POST">
+      <button type="submit">View More</button>
+    </form>
+ 
+  </div>
+  {{/if}}
+{{/each}}

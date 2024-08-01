@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+      <header>
+        <h2>BlogWeb</h2>
+        <nav>
+            <a href="/userhome">My Home</a>
+            <a href="AllBlogs">All Blogs</a>
+            <a href="/addblog">AddBlog</a>
+            <a href="/">Log Out</a>
+        </nav>
+    </header>
+
+    <h1>Welcome {{users.username}}</h1>
+    
+
+    <div class="container">
+{{#each blogs as |blog|}}
+{{#if blog.verify}}
+  <div class="blog-card">
+    <img src={{image}} alt="hi">
+    <p><b>Title:</b> {{title}}</p>
+    <p><b>Content:</b> {{content}}</p>
+    <p><b>Author:</b> {{user.username}}</p>
+ 
+<form action="/fullblog/{{_id}}" method="POST">
+      <button type="submit">View More</button>
+    </form>
+    <form action="/deleteBlog/{{_id}}" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+
+ {{/if}}
+{{/each}}
+
+  
+ 
+
+  </div>
+</body>
+</html>

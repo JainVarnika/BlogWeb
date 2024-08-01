@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+      <header>
+        <h2>BlogWeb</h2>
+        <nav>
+            <a href="/adminhome">My Dashboard</a>
+            <a href="/notification">Notifications</a>
+            <a href="/addblog">AddBlog</a>
+            <a href="/logout">Log Out</a>
+
+        </nav>
+    </header>
+
+    <h1>Pending Blogs Request</h1>
+    
+    <div class="container">
+{{#each blogsadmin as |blog|}}
+{{#unless blog.verify}}
+  <div class="blog-card">
+    <img src={{image}} alt="hi">
+    <p><b>Title:</b> {{title}}</p>
+    <p><b>Content:</b> {{content}}</p>
+    <p><b>Author: </b>{{user.username}}</p>
+
+ <form action="/approve/{{_id}}" method="POST">
+      <button type="submit">approve</button>
+    </form>
+    <form action="/deleteBlog/{{_id}}" method="POST">
+      <button type="submit">decline</button>
+    </form>
+  </div>
+  {{/unless}}
+{{/each}}
+
+
+  
+ 
+
+  </div>
+</body>
+</html>
